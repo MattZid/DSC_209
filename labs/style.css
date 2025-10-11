@@ -1,6 +1,96 @@
+
+html{
+--accent-color: oklch(52.602% 0.08927 259.434);
+--accent-color2: oklch(83.053% 0.08309 259.784 / 0.345);
+}
+
+h1{
+  font-size:400%;
+}
+
+h1,h2,h3,h4,h5,h6{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
 body {
   /* Set line height to 1.5 times the font size
 	   and use the OS’s UI font as the website font
 	 */
   font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: auto;
+  padding-left: .5em;
+}
+
+nav{
+display: flex;
+margin-bottom: 10px;
+border-bottom: 2px solid oklch(80% 3% 200);
+}
+
+nav *{
+flex:1;
+text-decoration: none;
+color: inherit;
+text-align: center;
+padding:0.5em;
+}
+
+nav a[class="current"]{
+border-bottom: 5px solid oklch(80% 3% 200);
+padding-bottom: .5em;
+}
+
+a:hover:not(.Portfolio){
+border-bottom: 5px solid var(--accent-color);
+background-color: var(--accent-color2);
+padding:0.5em;
+}
+
+
+form{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em; 
+}
+form label{
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+    
+  }
+
+form button{
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  }
+
+.projects{
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(15em,1fr));
+  gap: 2em;
+
+}
+
+article{
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+
+article h2{
+  margin:0;
+}
+
+h3.Portfolio{
+  color: oklch(27.587% 0.04094 260.336 / 0.884);
+}
+
+article.Portfolio{
+  display:grid;
+}
+
+article.Portfolio a{
+  grid-row: 2;
 }
