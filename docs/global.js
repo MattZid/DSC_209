@@ -61,8 +61,10 @@ for (let p of pages) {
 const BASE_PATH =
   location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? '/' // Local server
-    : '/website/'; // GitHub Pages repo name
+    : '/DSC_209/docs/'; // GitHub Pages repo name
 
 if (!url.startsWith('http')) {
   url = BASE_PATH + url;
 }
+
+
