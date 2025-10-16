@@ -42,7 +42,7 @@ let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 for (let p of pages) {
-  let url = p.url.startsWith('http') ? p.url : `/DSC_209/${p.url}`;  
+  let url = p.url.startsWith('http') ? p.url : `/docs/${p.url}`;  
   let title = p.title;
   //nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
   let a = document.createElement('a');
@@ -60,11 +60,9 @@ for (let p of pages) {
 
 const BASE_PATH =
   location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? '/' // Local dev
-    : '/DSC_209/'; // GitHub Pages repo name
+    ? '/' // Local server
+    : '/website/'; // GitHub Pages repo name
 
 if (!url.startsWith('http')) {
-  // Ensure exactly one slash between base and url
-  url = `${BASE_PATH}${url}`.replace(/([^:]\/)\/+/g, '$1');
+  url = BASE_PATH + url;
 }
-
