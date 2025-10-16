@@ -42,7 +42,7 @@ let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 for (let p of pages) {
-  let url = p.url.startsWith('http') ? p.url : `/docs/${p.url}`;  
+  let url = p.url.startsWith('http') ? p.url : `DSC_209/docs/${p.url}`;  
   let title = p.title;
   //nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
   let a = document.createElement('a');
