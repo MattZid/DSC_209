@@ -2,12 +2,27 @@
 html{
 --accent-color: oklch(52.602% 0.08927 259.434);
 --accent-color2: oklch(83.053% 0.08309 259.784 / 0.345);
+--border-color: oklch(50% 10% 200 / 40%);
+color-scheme: dark;
+border-bottom-color: var(--border-color);
 }
-
 h1{
-  font-size:400%;
+  font-size:200%;
 }
 
+label.color-scheme{
+  position: absolute;
+  font-size: 80%;
+  top: 1em;
+  right: 1em;
+}
+
+p.title{
+  font-size: 90%;
+  font-weight: lighter;
+  /* margin-top: -1em;
+  margin-bottom: 2em; */
+  font-style: italic;}
 h1,h2,h3,h4,h5,h6{
   line-height: 1.1;
   text-wrap: balance;
@@ -27,6 +42,7 @@ nav{
 display: flex;
 margin-bottom: 10px;
 border-bottom: 2px solid oklch(80% 3% 200);
+border-bottom-color: var(--border-color);
 }
 
 nav *{
@@ -44,8 +60,9 @@ padding-bottom: .5em;
 
 a:hover:not(.Portfolio){
 border-bottom: 5px solid var(--accent-color);
-background-color: var(--accent-color2);
+/*background-color: var(--accent-color2);*/
 padding:0.5em;
+background-color: color-mix(in oklch, var(--accent-color2), canvas 80%);
 }
 
 
