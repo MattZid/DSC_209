@@ -41,6 +41,7 @@ let pages = [
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 
+
 for (let p of pages) {
   let url = p.url.startsWith('http') ? p.url : `/docs/${p.url}`;  
   let title = p.title;
@@ -57,14 +58,15 @@ for (let p of pages) {
     a.target = "_blank";
   }
 }
-
 const BASE_PATH =
   location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? '/' // Local server
-    : '/DSC_209/docs/'; // GitHub Pages repo name
+    ? '/docs/' // Local server
+    : '/DSC_209/'; // GitHub Pages repo name
 
-if (!url.startsWith('http')) {
+if (!url.startsWith('https')) {
   url = BASE_PATH + url;
 }
+
+
 
 
