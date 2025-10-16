@@ -42,31 +42,26 @@ let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 
+const BASE_PATH =
+  (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+    ? '/docs/'
+    : '/DSC_209/';
+
 for (let p of pages) {
-  let url = p.url.startsWith('http') ? p.url : `/docs/${p.url}`;  
+  let url = p.url.startsWith('http') ? p.url : BASE_PATH + (p.url || '');
   let title = p.title;
-  //nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
+
   let a = document.createElement('a');
   a.href = url;
   a.textContent = title;
   nav.append(a);
+
   if (a.host === location.host && a.pathname === location.pathname) {
     a.classList.add('current');
-    a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname,);
-    }
-  if (p.url.startsWith('http')) {
-    a.target = "_blank";
+    a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
   }
+  if (p.url.startsWith('http')) a.target = "_blank";
 }
-const BASE_PATH =
-  location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? '/docs/' // Local server
-    : '/DSC_209/'; // GitHub Pages repo name
-
-if (!url.startsWith('https')) {
-  url = BASE_PATH + url;
-}
-
 
 
 
