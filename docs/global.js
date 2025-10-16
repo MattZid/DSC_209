@@ -22,7 +22,7 @@ if (localStorage.colorScheme) {
   select.value = localStorage.colorScheme;
   document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
 }
-  
+
 select.addEventListener('input', function (event) {
   console.log('color scheme changed to', event.target.value);
   document.documentElement.style.setProperty('color-scheme', event.target.value);
@@ -42,7 +42,7 @@ let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 for (let p of pages) {
-  let url = p.url.startsWith('http') ? p.url : `/docs/${p.url}`;  
+  let url = p.url.startsWith('http') ? p.url : `/DSC_209/${p.url}`;  
   let title = p.title;
   //nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
   let a = document.createElement('a');
