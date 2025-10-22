@@ -63,5 +63,34 @@ for (let p of pages) {
   if (p.url.startsWith('http')) a.target = "_blank";
 }
 
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    console.log('Response object:', response);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    const data = await response.json();
+    console.log('Parsed JSON:', data);
+    return data;
+
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+// fetchJSON('path/to/your.json');
+
+// containerElement.innerHTML = '';
+export function renderProjects(project, containerElement, headingLevel = 'h2') {  
+  const article = document.createElement('article');
+  article.innerHTML = `
+    <h3>${project.title}</h3>
+    <img src="${project.image}" alt="${project.title}">
+    <p>${project.description}</p>
+    `;
+  containerElement.appendChild(article);
+}
 
 
