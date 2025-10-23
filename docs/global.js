@@ -80,9 +80,6 @@ export async function fetchJSON(url) {
   }
 }
 
-// fetchJSON('path/to/your.json');
-
-// containerElement.innerHTML = '';
 export function renderProjects(project, containerElement, headingLevel = 'h2') {  
   const article = document.createElement('article');
   article.innerHTML = `
@@ -94,3 +91,7 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
 }
 
 
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}

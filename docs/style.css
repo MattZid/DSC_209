@@ -111,3 +111,23 @@ article.Portfolio{
 article.Portfolio a{
   grid-row: 2;
 }
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+  gap: 1rem;
+  text-align: center;
+  margin: 0;
+}
+
+dt, dd {
+  display: block;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0.25rem 0 0;
+}
