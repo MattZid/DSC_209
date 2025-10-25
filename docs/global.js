@@ -36,6 +36,7 @@ let pages = [
   { url: 'contact/', title: 'Contact' },
   { url: 'portfolio/', title: 'Portfolio' },
   { url:'https://github.com/MattZid', title: 'GitHub' },
+  { url:'P2/', title: 'Project 2' },
 ];
 
 let nav = document.createElement('nav');
