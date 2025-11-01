@@ -131,3 +131,11 @@ dt {
 dd {
   margin: 0.25rem 0 0;
 }
+
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
