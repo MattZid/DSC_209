@@ -8,6 +8,7 @@ border-bottom-color: var(--border-color);
 }
 h1{
   font-size:200%;
+  margin-top: 0;
 }
 
 label.color-scheme{
@@ -34,13 +35,14 @@ body {
 	 */
   font: 100%/1.5 system-ui;
   max-width: 100ch;
+  margin: 0;
   margin-inline: auto;
   padding-left: .5em;
 }
 
 nav{
 display: flex;
-margin-bottom: 10px;
+margin-bottom: 0px;
 border-bottom: 2px solid oklch(80% 3% 200);
 border-bottom-color: var(--border-color);
 }
@@ -132,10 +134,57 @@ dd {
   margin: 0.25rem 0 0;
 }
 
+.legend {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.projects-insights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin-block: 2rem;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend .swatch {
+  display: inline-block;
+  width: 1rem;
+  aspect-ratio: 1 / 1;
+  background: var(--color, currentColor);
+  border-radius: 0.25rem;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+
 
 #projects-pie-plot {
   max-width: 20em;
-  margin-block: 2em;
-
   overflow: visible;
+}
+
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+#projects-pie-plot path {
+  transition: 300ms;
+}
+
+.selected {
+  --color: oklch(65% 0.18 180) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
 }

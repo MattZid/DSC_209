@@ -48,6 +48,12 @@ const BASE_PATH =
     ? '/docs/'
     : '/DSC_209/';
 
+const IMG_BASE_PATH =
+  (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+    ? '/'
+    : '/DSC_209/';
+    
+    
 for (let p of pages) {
   let url = p.url.startsWith('http') ? p.url : BASE_PATH + (p.url || '');
   let title = p.title;
@@ -66,11 +72,11 @@ for (let p of pages) {
 
 export async function fetchJSON(url) {
   try {
-    // Fetch the JSON file from the given URL
-    const response = await fetch(url);
+    const requestUrl = url instanceof URL ? url : new URL(url, import.meta.url);
+    const response = await fetch(requestUrl);
     console.log('Response object:', response);
     if (!response.ok) {
-      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      throw new Error(`Failed to fetch projects: ${response.status} ${response.statusText}`);
     }
     const data = await response.json();
     console.log('Parsed JSON:', data);
@@ -78,20 +84,31 @@ export async function fetchJSON(url) {
 
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
+    try {
+      const requestUrl = url instanceof URL ? url : new URL(url, import.meta.url);
+      const module = await import(requestUrl.href, { assert: { type: 'json' } });
+      return module.default;
+    } catch (importError) {
+      console.error('Fallback JSON import failed:', importError);
+      return [];
+    }
   }
 }
 
 export function renderProjects(project, containerElement, headingLevel = 'h2') {  
   const article = document.createElement('article');
+
+  const imgSrc = project.image.startsWith('http')
+    ? project.image
+    : IMG_BASE_PATH + project.image;
+
   article.innerHTML = `
     <h3>${project.title}</h3>
-    <img src="${project.image}" alt="${project.title}" width="300" height="300">
+    <img src="${imgSrc}" alt="${project.title}" width="300" height="300">
     <p>${project.description}</p>
     `;
   containerElement.appendChild(article);
 }
-
-
 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
