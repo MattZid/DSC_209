@@ -50,7 +50,7 @@ const BASE_PATH =
 
 const IMG_BASE_PATH =
   (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-    ? '/'
+    ? '/docs/'
     : '/DSC_209/';
     
 const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
@@ -111,7 +111,7 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     }
 
     if (isLocalHost) {
-      return '/' + normalizedPath;
+      return IMG_BASE_PATH + normalizedPath.replace(/^docs\//, '');
     }
 
     return IMG_BASE_PATH + normalizedPath.replace(/^docs\//, '');

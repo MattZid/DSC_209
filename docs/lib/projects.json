@@ -2,20 +2,20 @@
   {
     "title": "DSC 209 Project 2",
     "year": "2025",
-    "image": "docs/images/pro_chart_v.jpg",
+    "image": "images/pro_chart_v.jpg",
     "description": "In this assignment, you will grapple with how to design visualizations ethically by crafting two different, opposing perspectives to the same question posed about a single dataset. Once this assignment is complete, we will (anonymously) peer review each other’s visualizations."
   },
   {
     "title": "MTA ROAS Optimization",
     "year": "2025",
-    "image": "docs/images/mta_roas.jpg",
+    "image": "images/mta_roas.jpg",
     "description": "This script seeks to define marketing channel spend and attributed revenue to a dimnishing return curve that can then be used to predict return on ad spend (ROAS), and determine an optimially omni-channel budgeting strategy."
 
   },
   {
     "title": "DSC 209 Project 1",
     "year": "2025",
-    "image": "docs/images/dsc209_p1.jpg",
+    "image": "images/dsc209_p1.jpg",
     "description": "In this assignment, you will design an expository visualization to clearly communicate an idea based on a small data set. In addition, you must provide a rigorous rationale for your design choices. You should in theory be ready to explain the contribution of every pixel in the display towards your expository goals."
   },
   {
