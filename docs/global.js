@@ -102,7 +102,13 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     if (!path) return '';
     if (path.startsWith('http')) return path;
 
-    return IMG_BASE_PATH + path.replace(/^\.?\/*/, '');
+    let normalizedPath = path.replace(/^\.?\/*/, '');
+
+    if (!(location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+      normalizedPath = normalizedPath.replace(/^docs\//, '');
+    }
+
+    return IMG_BASE_PATH + normalizedPath;
   };
 
   const imgSrc = resolveImagePath(project.image);
