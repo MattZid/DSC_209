@@ -53,6 +53,8 @@ const IMG_BASE_PATH =
     ? '/'
     : '/DSC_209/';
     
+const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+const isFileProtocol = location.protocol === 'file:';
     
 for (let p of pages) {
   let url = p.url.startsWith('http') ? p.url : BASE_PATH + (p.url || '');
@@ -102,13 +104,17 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     if (!path) return '';
     if (path.startsWith('http')) return path;
 
-    let normalizedPath = path.replace(/^\.?\/*/, '');
+    const normalizedPath = path.replace(/^\.?\/*/, '');
 
-    if (!(location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
-      normalizedPath = normalizedPath.replace(/^docs\//, '');
+    if (isFileProtocol) {
+      return new URL(normalizedPath, import.meta.url).href;
     }
 
-    return IMG_BASE_PATH + normalizedPath;
+    if (isLocalHost) {
+      return '/' + normalizedPath;
+    }
+
+    return IMG_BASE_PATH + normalizedPath.replace(/^docs\//, '');
   };
 
   const imgSrc = resolveImagePath(project.image);
