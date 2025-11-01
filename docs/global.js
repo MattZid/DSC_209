@@ -98,9 +98,14 @@ export async function fetchJSON(url) {
 export function renderProjects(project, containerElement, headingLevel = 'h2') {  
   const article = document.createElement('article');
 
-  const imgSrc = project.image.startsWith('http')
-    ? project.image
-    : IMG_BASE_PATH + project.image;
+  const resolveImagePath = (path) => {
+    if (!path) return '';
+    if (path.startsWith('http')) return path;
+
+    return IMG_BASE_PATH + path.replace(/^\.?\/*/, '');
+  };
+
+  const imgSrc = resolveImagePath(project.image);
 
   article.innerHTML = `
     <h3>${project.title}</h3>
