@@ -9,9 +9,25 @@ async function loadEmissionData() {
     return emissionData;
   } catch (error) {
     console.error('Error loading data:', error);
+    return [];
   }
 }
-
 const emissionData = await loadEmissionData();
-
 console.log(emissionData);
+
+
+function regionSelection(data) {
+  const regionsSet = new Set(data.map(d => d.Country));
+  return Array.from(regionsSet);
+}
+
+const countries = regionSelection(emissionData);
+
+const countrySelect = d3.select('#Regions_Selector');
+countrySelect.selectAll('option')
+  .data(countries)
+  .join('option')
+  .attr('value', d => d)
+  .text(d => d);
+
+console.log(countries);
