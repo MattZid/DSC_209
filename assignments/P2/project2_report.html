@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <script type="module" src="./global.js"></script>
   <head>
@@ -123,7 +123,7 @@
           text-align: left;
 
           &::before {
-            content: 'Figure ' counter(figure) ': ';
+            content: "Figure " counter(figure) ": ";
             font-weight: bold;
             color: var(--color-neutral-40);
           }
@@ -153,23 +153,39 @@
     </header>
 
     <main>
-      <h2>Proposition: Migration Does Not Contribute to American Economic Hardship</h2>
+      <h2>
+        Proposition: Migration Does Not Contribute to American Economic Hardship
+      </h2>
 
       <section>
         <h3>FOR the Proposition</h3>
 
         <figure>
           <img src="./pro_chart_v.jpg" alt="pro chart" width="700" />
-          <figcaption>CPI rates and migration have trended idependently from each other for decades.</figcaption>
+          <figcaption>
+            CPI rates and migration have trended idependently from each other
+            for decades.
+          </figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-          <li>I visualized the full historial trends to visualize low correlation between the two features (+2)</li>
-          <li>I highlighted two periods:  one period where CPI rates were high while migration was low, and another period where the opposite is true to clarify my proposition.  I considered taking the mean 
-           of both features across two spans of time to simpify this comparison but opted for a more intuitive, clearer solution. (+1)</li>
-          <li>I annotated the highest CPI rate and lowest CPI rate in the visualization that both inversely trend with migration(+0.5)</li>
+          <li>
+            I visualized the full historial trends to visualize low correlation
+            between the two features (+2)
+          </li>
+          <li>
+            I highlighted two periods: one period where CPI rates were high
+            while migration was low, and another period where the opposite is
+            true to clarify my proposition. I considered taking the mean of both
+            features across two spans of time to simpify this comparison but
+            opted for a more intuitive, clearer solution. (+1)
+          </li>
+          <li>
+            I annotated the highest CPI rate and lowest CPI rate in the
+            visualization that both inversely trend with migration(+0.5)
+          </li>
         </ul>
       </section>
 
@@ -177,28 +193,82 @@
         <h3>AGAINST the Proposition</h3>
 
         <figure>
-          <img src="./con_chart_v.jpg" alt="" width="700"/>
-          <figcaption>Comparing recent CPI rate trends against 1970, inflation has significantly eased along with less migration.</figcaption>
+          <img src="./con_chart_v.jpg" alt="" width="700" />
+          <figcaption>
+            Comparing recent CPI rate trends against 1970, inflation has
+            significantly eased along with less migration.
+          </figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-          <li>I used a bar chart to compare two years rather than overall trends to obscure the true relationship between these features.  I thought about adjusting my Y-axes so they visibly trended closer
-            but I decided that a bar chart is more powerful in its simplicity and ability to support a skewed perspective.  Especially because bar charts are not a recommended chart type for time trended data.  (-2) </li>
-          <li>I used a gradient for the CPI rate bar to emphasize the negative association with higher inflation(-1)</li>
-          <li>I adjusted the scale of the CPI Annual % Change Y-axis in order to emphasize the change over time (-1)</li>
-          <li>I annotated the visualization with the CPI rate in 1970 and 2020 to make the difference in values even more clear(-0.5)</li>
-          <li>I calculated the improvement in CPI rate to strengthen my narrative (-0.5)</li>
+          <li>
+            I used a bar chart to compare two years rather than overall trends
+            to obscure the true relationship between these features. I thought
+            about adjusting my Y-axes so they visibly trended closer but I
+            decided that a bar chart is more powerful in its simplicity and
+            ability to support a skewed perspective. Especially because bar
+            charts are not a recommended chart type for time trended data. (-2)
+          </li>
+          <li>
+            I used a gradient for the CPI rate bar to emphasize the negative
+            association with higher inflation(-1)
+          </li>
+          <li>
+            I adjusted the scale of the CPI Annual % Change Y-axis in order to
+            emphasize the change over time (-1)
+          </li>
+          <li>
+            I annotated the visualization with the CPI rate in 1970 and 2020 to
+            make the difference in values even more clear(-0.5)
+          </li>
+          <li>
+            I calculated the improvement in CPI rate to strengthen my narrative
+            (-0.5)
+          </li>
         </ul>
       </section>
 
       <section>
         <h2>Final Reflection</h2>
 
-        <p>  I found this project more difficult than I expected.  From the World Bank database I manually pulled individual datasets for a variety of features that are often referenced in news articles, such as CPI, crime rates, immigration, employment rates, and others.  I wanted to focus my submission on the United States only.  Given that each dataset was organized so that each row was a country’s data, I extracted the row item for the United States in each dataset and transposed the subset so that the yearly granularity metric data was now organized as a single column.  I completed this for each dataset then merged each USA filtered subset into an aggregated USA dataframe.  </p>
-        <p>  From here I investigated trends and I decided to focus on an issue that is frequently brought up in the news - migration and its negative impact.  With my proposition that migration does not significantly impact economic hardship for Americans, I was determined to support this claim with ethical, objective chart design.  In my “FOR the Proposition” chart, I wanted facts to speak for themselves.  I visualized the entire dataset as a dual line chart.  I selectively used annotations and highlighted key regions in this chart to make this proposition more clear.  In my “AGAINST the Proposition” chart, I intentionally designed it as a bar chart to deceive the viewer that there is a positive correlation between migration and inflation.  Annotations emphasize this and by using metrics I add credibility to this claim.  The simplicity of the bar chart can be a powerful tool for deception because it’s so easy to interpret. </p>
-        <p>  From this project, I’ve learned how important it is to use visualization features to reveal the truth objectively, rather than to manipulate data to support a personal narrative.  Misleading design choices like using incorrect chart types, cherry picking data, or skewing the axes scales are inappropriate not only ethically, but also because they present data inaccurately.</p>
+        <p>
+          I found this project more difficult than I expected. From the World
+          Bank database I manually pulled individual datasets for a variety of
+          features that are often referenced in news articles, such as CPI,
+          crime rates, immigration, employment rates, and others. I wanted to
+          focus my submission on the United States only. Given that each dataset
+          was organized so that each row was a country’s data, I extracted the
+          row item for the United States in each dataset and transposed the
+          subset so that the yearly granularity metric data was now organized as
+          a single column. I completed this for each dataset then merged each
+          USA filtered subset into an aggregated USA dataframe.
+        </p>
+        <p>
+          From here I investigated trends and I decided to focus on an issue
+          that is frequently brought up in the news - migration and its negative
+          impact. With my proposition that migration does not significantly
+          impact economic hardship for Americans, I was determined to support
+          this claim with ethical, objective chart design. In my “FOR the
+          Proposition” chart, I wanted facts to speak for themselves. I
+          visualized the entire dataset as a dual line chart. I selectively used
+          annotations and highlighted key regions in this chart to make this
+          proposition more clear. In my “AGAINST the Proposition” chart, I
+          intentionally designed it as a bar chart to deceive the viewer that
+          there is a positive correlation between migration and inflation.
+          Annotations emphasize this and by using metrics I add credibility to
+          this claim. The simplicity of the bar chart can be a powerful tool for
+          deception because it’s so easy to interpret.
+        </p>
+        <p>
+          From this project, I’ve learned how important it is to use
+          visualization features to reveal the truth objectively, rather than to
+          manipulate data to support a personal narrative. Misleading design
+          choices like using incorrect chart types, cherry picking data, or
+          skewing the axes scales are inappropriate not only ethically, but also
+          because they present data inaccurately.
+        </p>
       </section>
     </main>
   </body>
