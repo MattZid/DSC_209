@@ -9,18 +9,47 @@
     <!-- Favicon placeholders -->
     <link rel="icon" href="/favicon.ico" />
 
-    <!-- Global styles (swap for your compiled CSS) -->
-    <style>
-    </style>
+    <link rel="stylesheet" href="./main.css" />
 </head>
 <body>
+    <div id="stats"></div>
     <header>
         <h1>Project Documentation - Meta Index</h1>
     </header>
     <p>This page includes stats about the code of this website</p>
+
+
+<h2>Commits by time of day</h2>
+<div id="selection-panel">
+  <p id="selection-count">No commits selected</p>
+  <dl id="language-breakdown" class="stats"></dl>
+</div>
+<dl id="commit-tooltip" class="info tooltip">
+  <dt>Commit</dt>
+  <dd>
+    <a href="" id="commit-link" target="_blank"></a>
+  </dd>
+
+  <dt>Date</dt>
+  <dd id="commit-date"></dd>
+
+  <!-- Add: Time, author, lines edited -->
+    <dt>Time</dt>
+    <dd id="commit-time"></dd>
+    
+    <dt>Author</dt>
+    <dd id="commit-author"></dd>
+    
+    <dt>Lines Edited</dt>
+    <dd id="commit-lines-edited"></dd>
+</dl>
+
+<div id="chart"></div>
+
     <footer>
         <p>Authored by Matt Zidell 2025</p>
     </footer>
-
 </body>
+<script type="module" src="./main.js"></script>
+
 </html>
